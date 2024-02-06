@@ -34,7 +34,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        nombre = self.txt_nombre.get()
+        alert("EJERCICIO 3", "Su nombre es {0}".format(nombre))
                 
     
 if __name__ == "__main__":
