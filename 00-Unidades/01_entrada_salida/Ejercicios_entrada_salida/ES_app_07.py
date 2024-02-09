@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Ignacio Agustin 
+apellido: Herrera
 ---
 Ejercicio: entrada_salida_07
 ---
@@ -49,20 +49,40 @@ class App(customtkinter.CTk):
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_sumar_on_click(self):
-        suma = int(self.txt_operador_a.get()) + int(self.txt_operador_b.get())
-        alert ("SUMA", "El resultado de la suma es: {0}".format(suma))
+        operador_a_str = self.txt_operador_a.get()
+        operador_b_str = self.txt_operador_b.get()
+        operador_a = int(operador_a_str)
+        operador_b = int(operador_b_str)
+        suma = operador_a + operador_b
+        mensaje = "El resultado de la suma es: {0}".format(suma)
+        alert ("SUMA", mensaje)
 
     def btn_restar_on_click(self):
-        resta = int(self.txt_operador_a.get()) - int(self.txt_operador_b.get())
-        alert ("RESTA", "El resultado de la resta es: {0}".format(resta))
+        operador_a_str = self.txt_operador_a.get()
+        operador_b_str = self.txt_operador_b.get()
+        operador_a = int(operador_a_str)
+        operador_b = int(operador_b_str)
+        resta = operador_a - operador_b
+        mensaje = "El resultado de la resta es: {0}".format(resta)
+        alert ("RESTA", mensaje)
 
     def btn_multiplicar_on_click(self):
-        multi = int(self.txt_operador_a.get()) * int(self.txt_operador_b.get())
-        alert ("MULTIPLICACION", "El resultado de la multiplicacion es: {0}".format(multi))
+        operador_a_str = self.txt_operador_a.get()
+        operador_b_str = self.txt_operador_b.get()
+        operador_a = int(operador_a_str)
+        operador_b = int(operador_b_str)
+        multi = operador_a * operador_b
+        mensaje = "El resultado de la multiplicacion es: {0}".format(multi)
+        alert ("MULTIPLICACION", mensaje)
 
     def btn_dividir_on_click(self):
-        div = int(self.txt_operador_a.get()) / int(self.txt_operador_b.get())
-        alert ("DIVISION", "El resultado de la division es: {0}".format(div))
+        operador_a_str = self.txt_operador_a.get()
+        operador_b_str = self.txt_operador_b.get()
+        operador_a = int(operador_a_str)
+        operador_b = int(operador_b_str)
+        div = operador_a / operador_b
+        mensaje = "El resultado de la division es: {0}".format(div)
+        alert ("DIVISION", mensaje)
         
 if __name__ == "__main__":
     app = App()

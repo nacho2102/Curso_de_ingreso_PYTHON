@@ -3,10 +3,11 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import math
 
 '''
-nombre:
-apellido:
+nombre: Ignacio Agustin
+apellido: Herrera
 ---
 TP: ES_Camioneros
 ---
@@ -46,10 +47,19 @@ class App(customtkinter.CTk):
         self.btn_tiempo_llegada.grid(row=4, pady=10, padx=30, columnspan=2, sticky="nsew")
     
     def btn_cantidad_camiones_on_click(self):
-        pass
+        toneladas_str = self.txt_toneladas.get()
+        toneladas = float(toneladas_str)
+        camiones = toneladas / 3.5
+        redondeo = math.ceil(camiones)
+        mensaje = "Se necesitan {0} camion/nes".format(redondeo)
+        alert("TP_E/S_3", mensaje)
 
     def btn_tiempo_llegada_on_click(self):
-        pass
+        kilometros_str = self.txt_kilometros.get()
+        kilometros = float(kilometros_str)
+        tiempo = kilometros / 90
+        mensaje = "Tomara {0} hs en llegar al destino".format(tiempo)
+        alert("TP_E/S_3", mensaje)
     
     
 if __name__ == "__main__":
