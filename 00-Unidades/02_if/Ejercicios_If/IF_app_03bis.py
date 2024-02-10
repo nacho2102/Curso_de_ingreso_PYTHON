@@ -35,12 +35,12 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         altura_str = self.txt_altura.get()
         altura = float(altura_str)
-        mensaje_positivo = "PIVOT"
-        mensaje_negativo = "NO PIVOT"
-        if (altura >= 1.8):
-            alert("EJERCICIO 3_BIS", mensaje_positivo)
+        mensaje = ""
+        if (altura >= 180):
+            mensaje = "PIVOt"
         else:
-            alert("EJERCICIO 3_BIS", mensaje_negativo)
+            mensaje = "NO PIVOT"
+        alert("EJERCICIO 3_BIS", mensaje)
 
 
 if __name__ == "__main__":

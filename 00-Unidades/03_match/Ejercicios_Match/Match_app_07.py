@@ -35,19 +35,17 @@ class App(customtkinter.CTk):
     
     def btn_informar_on_click(self):
         destinos = self.combobox_destino.get()
-        m_norte = "Norte"
-        m_sur = "Sur"
-        m_este = "Este"
-        m_oeste = "Oeste"
+        mensaje = ""
         match (destinos):
             case "Mar del plata":
-                alert("EJERCICIO 7", m_este)
+                mensaje = "Este"
             case "Bariloche":
-                alert("EJERCICIO 7", m_oeste)
+                mensaje = "Oeste"
             case "Cataratas":
-                alert("EJERCICIO 7", m_norte)
+                mensaje = "Norte"
             case _:
-                alert("EJERCICIO 7", m_sur)
+                mensaje = "Sur"
+        alert("EJERCICIO 7", mensaje)
     
     
 if __name__ == "__main__":

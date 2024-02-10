@@ -45,18 +45,18 @@ class App(customtkinter.CTk):
         tipo = self.combobox_tipo.get()
         edad_str = self.txt_edad.get()
         edad = int(edad_str)
-        mensaje_positivo = "Puede votar"
-        mensaje_negativo = "No puede votar"
+        mensaje = ""
         if (tipo == "NATIVO"):
             if (edad >= 16):
-                alert("EJERCICIO 7", mensaje_positivo)
+                mensaje = "Puede votar"
             else:
-                alert("EJERCICIO 7", mensaje_negativo)
+                mensaje = "No puede votar"
         else:
             if (edad >= 18):
-                alert("EJERCICIO 7", mensaje_positivo)
+                mensaje = "Puede votar"
             else:
-                alert("EJERCICIO 7", mensaje_negativo)
+                mensaje = "No puede votar"
+        alert("EJERCICIO 7", mensaje)
         
     
 if __name__ == "__main__":
