@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Ignacio Agustin
+apellido: Herrera
 ---
 TP: Iluminación
 ---
@@ -46,7 +46,6 @@ class App(customtkinter.CTk):
         cantidad_str = self.combobox_cantidad.get()
         cantidad = int(cantidad_str)
         marca = self.combobox_marca.get()
-        precio = 800
         descuento = 0
         match (cantidad):
             case 1 | 2:
@@ -73,10 +72,10 @@ class App(customtkinter.CTk):
                         descuento = 0.3
             case _:
                 descuento = 0.5
-        precio_sf = cantidad * precio
+        precio_sf = cantidad * 800
         precio_f = precio_sf - (precio_sf * descuento)
         if (precio_f > 4000):
-            precio_f = precio_f - (precio_f * 0.05)
+            precio_f = precio_f * 0.95
         mensaje = "El valor total a pagar por {0} lampara/as de la marca {1} es ${2}".format(cantidad, marca, precio_f)
         alert("TP_IF_1", mensaje)
         

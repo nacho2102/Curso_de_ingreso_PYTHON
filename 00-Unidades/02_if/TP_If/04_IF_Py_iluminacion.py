@@ -73,11 +73,7 @@ class App(customtkinter.CTk):
         precio_f = precio_sf - (precio_sf * descuento)
         if (precio_f > 4000):
             precio_f = precio_f - (precio_f * 0.05)
-        if (cantidad != 1):
-            lamparas = "lamparas"
-        else:
-            lamparas = "lampara"
-        mensaje = "El valor total a pagar por {0} {1} de la marca {2} es ${3}".format(cantidad, lamparas, marca, precio_f)
+        mensaje = "El valor total a pagar por {0} lampara/as de la marca {1} es ${2}".format(cantidad, marca, precio_f)
         alert("TP_IF_1", mensaje)
         
 
