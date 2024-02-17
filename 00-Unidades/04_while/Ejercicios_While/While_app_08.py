@@ -36,7 +36,28 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        suma_acumulada = 0
+        producto = 1
+        while True:
+            numero_str = prompt("EJERCICIO 8", "Ingrese un numero")
+            if numero_str is None or numero_str == "0":
+                break
+            try:
+                numero = float(numero_str)
+                if (numero > 0):
+                    suma_acumulada += numero
+                elif (numero < 0):
+                    producto *= numero
+            except ValueError:
+                tkinter.messagebox.showerror("Error", "Por favor ingrese un número válido.")
+                continue
+        if (producto == 1):
+            producto = 0
+        self.txt_suma_acumulada.delete(0, tkinter.END)
+        self.txt_producto.delete(0 , tkinter.END)
+        self.txt_suma_acumulada.insert(0, suma_acumulada)
+        self.txt_producto.insert(0, producto)
+
 
     
 if __name__ == "__main__":

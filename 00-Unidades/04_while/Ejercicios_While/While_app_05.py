@@ -30,14 +30,10 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_letra_on_click(self):
-        validacion = False
-        while validacion == False:
-            letra = prompt("EJERCICIO 5", "Porfavor ingrese una letra")
-            match (letra):
-                case "U" | "T" | "N":
-                    validacion = True
-                case _:
-                    validacion = False
+        letra = prompt("EJERCICIO 5", "Porfavor ingrese una letra")
+        while letra != "U" and letra != "T" and letra != "N":
+            letra = prompt("EJERCICIO 5", "Porfavor reingrese una letra")
+            
                 
             
     
