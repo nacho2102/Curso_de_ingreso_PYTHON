@@ -55,7 +55,47 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        apellido = prompt("Risin BTL", "Ingrese su apellido")
+        edad_str = prompt("Rising BTL", "Ingrese su edad")
+        edad = int(edad_str)
+        tipo = prompt("Rising BTL", "Ingrese su estado civil")
+        legajo_str = prompt("Rising BTL", "Ingrese su numero de legajo")
+        legajo = int(legajo_str)
+        while apellido.isdigit():
+            apellido = prompt("ERROR", "Apellido invalido, reingrese su apellido")
+            if apellido is None:
+                break
+            else:
+                continue
+        while edad_str.isalpha() or (edad < 18 or edad > 90):
+            edad_str = prompt("ERROR", "Edad invalida, reingrese su edad")
+            edad = int(edad_str)
+            if edad_str is None:
+                break
+            else:
+                continue
+        while not (tipo == "Soltero" or tipo == "Soltera" or tipo == "Casado" or tipo == "Casada" or tipo == "Divorciado"
+                    or tipo == "Divorciada" or tipo == "Viudo" or tipo == "Viuda"):
+            tipo = prompt("ERROR", "Estado civil invalido, reingrese su estado civil")
+            if tipo is None:
+                break
+            else:
+                continue
+        while legajo_str.isalpha() or (legajo < 1000 or legajo > 9999):
+            legajo_str = prompt("ERROR", "N° de legajo invalido, reingrese su N° de legajo")
+            legajo = int(legajo_str)
+            if legajo_str is None:
+                break
+            else:
+                continue
+        self.txt_apellido.delete(0, tkinter.END)
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.delete(0, tkinter.END)
+        self.txt_edad.insert(0, edad_str)
+        self.txt_tipo.delete(0, tkinter.END)
+        self.txt_tipo.insert(0, tipo)
+        self.txt_legajo.delete(0, tkinter.END)
+        self.txt_legajo.insert(0, legajo_str)
 
 if __name__ == "__main__":
     app = App()
