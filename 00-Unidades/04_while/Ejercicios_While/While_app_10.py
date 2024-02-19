@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
         cantidad_ceros = 0
         while True:
             numero_str = prompt("Ingresar número", "Ingrese un número (presione Cancelar para finalizar):")
-            if numero_str is None:
+            if numero_str == None:
                 break
             try:
                 numero = float(numero_str)

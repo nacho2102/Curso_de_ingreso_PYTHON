@@ -44,42 +44,32 @@ class App(customtkinter.CTk):
             nombre = prompt("Elecciones PASO", "Ingrese el nombre del candito")
             if nombre == None:
                 break
-            while nombre.isdigit():
+            while not (nombre.isalpha()):
                 nombre = prompt("ERROR", "El nombre no puede contener numeros, porfavor reingrese el nombre")
-                if not (nombre.isdigit):
+                if (nombre.isalpha) or nombre == None:
                     break
                 else:
                     continue
             edad = prompt("Elecciones PASO", "Ingrese la edad del candidato")
             if edad == None:
                 break
-            edad = int(edad)
-            while (edad <= 25):
-                edad = prompt("ERROR", "La edad no puede ser menor o igual a 25, porfavor reingrese la edad")
-                edad = int(edad)
-                if (edad > 25) or None:
+            while not (edad.isdigit() and int(edad) > 25):
+                edad = prompt("ERROR", "La edad no puede ser menor o igual a 25, ni letras, porfavor reingrese la edad")
+                if (edad.isdigit() and int(edad) > 25) or edad == None:
                     break
                 else:
                     continue
+            edad = int(edad)
             votos = prompt("Elecciones Paso", "Ingrese los votos del candidato")
             if votos == None:
                 break
-            elif votos.isalpha():
-                while votos.isalpha():
-                    votos = prompt("ERROR", "Reingrese los votos del candidato")
-                    if votos == None or not (votos.isalpha()):
-                        break
-                    else:
-                        continue
+            while not (votos.isdigit() and int(votos) >= 0):
+                votos = prompt("ERROR", "Reingrese los votos del candidato")
+                if (votos.isdigit() and int(votos) >= 0) or votos == None:
+                    break
+                else:
+                    continue
             votos = int(votos)
-            if votos < 0:
-                while votos < 0:
-                    votos = prompt("ERROR", "Reingrese los votos del candidato")
-                    votos = int(votos)
-                    if votos == None or votos >= 0:
-                        break
-                    else:
-                        continue
             if (acumulador == 0):
                 candidato_mas_votado = (nombre, votos)
                 candidato_menos_votado = (nombre, votos)
