@@ -69,8 +69,6 @@ class App(customtkinter.CTk):
             edad = prompt("ERROR", "Edad invalida, reingrese su edad")
             if edad is None:
                 break
-            elif (edad.isdigit() and (int(edad) >=18 and int(edad) <= 90)):
-                break
             else:
                 continue
         while not (tipo.isalpha and tipo == "Soltero" or tipo == "Soltera" or tipo == "Casado" or tipo == "Casada" or tipo == "Divorciado"

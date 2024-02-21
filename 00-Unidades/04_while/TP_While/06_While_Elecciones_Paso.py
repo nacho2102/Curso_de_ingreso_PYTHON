@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
                 break
             while not (nombre.isalpha()):
                 nombre = prompt("ERROR", "El nombre no puede contener numeros, porfavor reingrese el nombre")
-                if (nombre.isalpha) or nombre == None:
+                if nombre == None:
                     break
                 else:
                     continue
@@ -53,7 +53,7 @@ class App(customtkinter.CTk):
                 break
             while not (edad.isdigit() and int(edad) > 25):
                 edad = prompt("ERROR", "La edad no puede ser menor o igual a 25, ni letras, porfavor reingrese la edad")
-                if (edad.isdigit() and int(edad) > 25) or edad == None:
+                if edad == None:
                     break
                 else:
                     continue
@@ -63,7 +63,7 @@ class App(customtkinter.CTk):
                 break
             while not (votos.isdigit() and int(votos) >= 0):
                 votos = prompt("ERROR", "Reingrese los votos del candidato")
-                if (votos.isdigit() and int(votos) >= 0) or votos == None:
+                if votos == None:
                     break
                 else:
                     continue
