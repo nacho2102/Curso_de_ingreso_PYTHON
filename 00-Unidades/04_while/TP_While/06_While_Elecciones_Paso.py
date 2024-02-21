@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Ignacio Agustin
+apellido: Herrera
 ---
 TP: While_elecciones_paso
 ---
@@ -35,8 +35,6 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        candidato_mas_votado = ("", 0)
-        candidato_menos_votado = ("", 0)
         promedio_edad = 0
         acumulador = 0
         total_votos = 0
@@ -70,19 +68,22 @@ class App(customtkinter.CTk):
                 else:
                     continue
             votos = int(votos)
-            if (acumulador == 0):
-                candidato_mas_votado = (nombre, votos)
-                candidato_menos_votado = (nombre, votos)
-            else:
-                if votos > candidato_mas_votado[1]:
-                    candidato_mas_votado = (nombre, votos)
-                elif votos < candidato_menos_votado[1]:
-                    candidato_menos_votado = (nombre, votos)
+            if acumulador == 0 or votos > mas_votado:
+                candidato_mas_votado = nombre
+                mas_votado = votos
+            if acumulador == 0 or votos < menos_votos:
+                candidato_menos_votado = nombre
+                menos_votos = votos
             promedio_edad += edad
             total_votos += votos
             acumulador += 1
         promedio_edad = promedio_edad / acumulador
-        mensaje = (f"Candidato mas votado: {candidato_mas_votado[0]}.\nCandidato menos votado: {candidato_menos_votado[0]} con {candidato_menos_votado[1]} votos.\nEl promedio de la edad de los candidatos es: {promedio_edad}. \nTotal de votos : {total_votos}")
+        mensaje = (
+            f"Candidato mas votado: {candidato_mas_votado}.\n"
+            f"Candidato menos votado: {candidato_menos_votado} con {menos_votos} votos.\n"
+            f"El promedio de la edad de los candidatos es: {promedio_edad}.\n"
+            f"Total de votos : {total_votos}"
+        )
         alert("ELECCIONES PASO", mensaje)
 
 

@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Ignacio Agustin
+apellido: Herrera
 ---
 Ejercicio: while_10
 ---
@@ -46,20 +46,18 @@ class App(customtkinter.CTk):
             numero_str = prompt("Ingresar número", "Ingrese un número (presione Cancelar para finalizar):")
             if numero_str == None:
                 break
-            try:
-                numero = float(numero_str)
-                if numero > 0:
-                    suma_positivos += numero
-                    cantidad_positivos += 1
-                elif numero < 0:
-                    suma_negativos += numero
-                    cantidad_negativos += 1
-                else:
-                    cantidad_ceros += 1
-            except ValueError:
-                alert("Error", "Por favor ingrese un número válido.")
-                continue
+            numero = float(numero_str)
+            if numero > 0:
+                suma_positivos += numero
+                cantidad_positivos += 1
+            elif numero < 0:
+                suma_negativos += numero
+                cantidad_negativos += 1
+            else:
+                cantidad_ceros += 1
         diferencia = cantidad_positivos - cantidad_negativos
+        if diferencia < 0:
+            diferencia *= -1
         resultado = (
             f"A. Suma de negativos: {suma_negativos}\n"
             f"B. Suma de positivos: {suma_positivos}\n"
