@@ -20,6 +20,8 @@ Luego calcular:
     D. Cantidad de números negativos ingresados
     E. Cantidad de ceros
     F. Diferencia entre la cantidad de los números positivos ingresados y los negativos
+    G. El máximo valor. 
+    H. El mínimo valor (incluyendo en que iteracion se encontro, solo la primera)
 
 Informar los resultados mediante alert()
 
@@ -42,10 +44,14 @@ class App(customtkinter.CTk):
         cantidad_positivos = 0
         cantidad_negativos = 0
         cantidad_ceros = 0
+        contador = 0
         while True:
             numero_str = prompt("Ingresar número", "Ingrese un número (presione Cancelar para finalizar):")
             if numero_str == None:
                 break
+            contador += 1
+            while numero_str == "":
+                numero_str = prompt("ERROR", "Ingrese un número valido (presione Cancelar para finalizar):")
             numero = float(numero_str)
             if numero > 0:
                 suma_positivos += numero
@@ -55,16 +61,26 @@ class App(customtkinter.CTk):
                 cantidad_negativos += 1
             else:
                 cantidad_ceros += 1
+            if contador == 1 or numero > maximo_valor:
+                maximo_valor = numero
+            if contador == 1 or numero < minimo_valor:
+                minimo_valor = numero
+                iteracion = contador 
         diferencia = cantidad_positivos - cantidad_negativos
         if diferencia < 0:
             diferencia *= -1
-        resultado = (
+        if contador == 0:
+            resultado = "No se han igresado datos"
+        else:
+            resultado = (
             f"A. Suma de negativos: {suma_negativos}\n"
             f"B. Suma de positivos: {suma_positivos}\n"
             f"C. Cantidad de números positivos: {cantidad_positivos}\n"
             f"D. Cantidad de números negativos: {cantidad_negativos}\n"
             f"E. Cantidad de ceros: {cantidad_ceros}\n"
             f"F. Diferencia entre positivos y negativos: {diferencia}\n"
+            f"G. Valor maximo: {maximo_valor}\n"
+            f"H. Valor minimo: {minimo_valor} en iteracion {iteracion}\n"
         )
         alert("Resultados", resultado)
 

@@ -38,7 +38,8 @@ class App(customtkinter.CTk):
         promedio_edad = 0
         acumulador = 0
         total_votos = 0
-        while True:
+        continuar = True
+        while continuar:
             nombre = prompt("Elecciones PASO", "Ingrese el nombre del candito")
             if nombre == None:
                 break
@@ -77,8 +78,13 @@ class App(customtkinter.CTk):
             promedio_edad += edad
             total_votos += votos
             acumulador += 1
-        promedio_edad = promedio_edad / acumulador
-        mensaje = (
+            continuar = question("PASO", "Desea seguir ingresando candidatos?")
+        if acumulador > 0:
+            promedio_edad = promedio_edad / acumulador
+        elif acumulador == 0:
+            mensaje = "No se ingresaron todos los datos"
+        else:
+            mensaje = (
             f"Candidato mas votado: {candidato_mas_votado}.\n"
             f"Candidato menos votado: {candidato_menos_votado} con {menos_votos} votos.\n"
             f"El promedio de la edad de los candidatos es: {promedio_edad}.\n"

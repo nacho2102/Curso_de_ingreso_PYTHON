@@ -59,30 +59,28 @@ class App(customtkinter.CTk):
         edad = prompt("Rising BTL", "Ingrese su edad")
         tipo = prompt("Rising BTL", "Ingrese su estado civil")
         legajo = prompt("Rising BTL", "Ingrese su numero de legajo")
-        while not (apellido.isalpha()):
+        while apellido == None or not (apellido.isalpha()):
             apellido = prompt("ERROR", "Apellido invalido, reingrese su apellido")
             if apellido is None:
                 break
             else:
                 continue
-        while not (edad.isdigit() and (int(edad) >=18 and int(edad) <= 90)):
+        while edad == None or not (edad.isdigit() and (int(edad) >=18 and int(edad) <= 90)):
             edad = prompt("ERROR", "Edad invalida, reingrese su edad")
             if edad is None:
                 break
             else:
                 continue
-        while not (tipo.isalpha and tipo == "Soltero" or tipo == "Soltera" or tipo == "Casado" or tipo == "Casada" or tipo == "Divorciado"
+        while tipo == None or not (tipo.isalpha and tipo == "Soltero" or tipo == "Soltera" or tipo == "Casado" or tipo == "Casada" or tipo == "Divorciado"
                     or tipo == "Divorciada" or tipo == "Viudo" or tipo == "Viuda"):
             tipo = prompt("ERROR", "Estado civil invalido, reingrese su estado civil")
             if tipo is None:
                 break
             else:
                 continue
-        while not (legajo.isdigit() and (int(legajo) >= 1000 and int(legajo) <= 9999)):
+        while legajo == None or not (legajo.isdigit() and (int(legajo) >= 1000 and int(legajo) <= 9999)):
             legajo = prompt("ERROR", "N° de legajo invalido, reingrese su N° de legajo")
             if legajo is None:
-                break
-            elif (legajo.isdigit() and (int(legajo) >= 1000 and int(legajo) <= 9999)):
                 break
             else:
                 continue
