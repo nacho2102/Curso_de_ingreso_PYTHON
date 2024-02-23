@@ -79,11 +79,10 @@ class App(customtkinter.CTk):
             total_votos += votos
             acumulador += 1
             continuar = question("PASO", "Desea seguir ingresando candidatos?")
-        if acumulador > 0:
-            promedio_edad = promedio_edad / acumulador
-        elif acumulador == 0:
-            mensaje = "No se ingresaron todos los datos"
+        if acumulador == 0:
+            mensaje = "No se ingresaron todos los datos minimos requeridos"
         else:
+            promedio_edad = promedio_edad / acumulador
             mensaje = (
             f"Candidato mas votado: {candidato_mas_votado}.\n"
             f"Candidato menos votado: {candidato_menos_votado} con {menos_votos} votos.\n"
